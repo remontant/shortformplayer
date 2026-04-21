@@ -279,17 +279,42 @@ export default function List({ onOpenSeries }: Props) {
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div
                   style={{
-                    fontSize: 16,
-                    fontWeight: 600,
-                    color: 'var(--ink)',
-                    letterSpacing: '-0.01em',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
                     marginBottom: 4,
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
                   }}
                 >
-                  {s.title}
+                  <div
+                    style={{
+                      fontSize: 16,
+                      fontWeight: 600,
+                      color: 'var(--ink)',
+                      letterSpacing: '-0.01em',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
+                    {s.title}
+                  </div>
+                  {isComingSoon && (
+                    <div
+                      style={{
+                        padding: '3px 6px',
+                        borderRadius: 4,
+                        background: 'rgba(230,57,70,0.08)',
+                        color: 'var(--plot-red)',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: 9.5,
+                        fontWeight: 600,
+                        letterSpacing: '0.08em',
+                        flexShrink: 0,
+                      }}
+                    >
+                      COMING SOON
+                    </div>
+                  )}
                 </div>
                 <div
                   style={{
