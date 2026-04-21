@@ -7,6 +7,12 @@ import LikeButton from '@/components/LikeButton';
 import PlayerChrome from './PlayerChrome';
 import { FeedEntry, getSeries } from '@/lib/data';
 
+function extractYoutubeId(url: string) {
+  if (!url) return null;
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|shorts\/|watch\?v=|\?v=))([\w-]{11})/);
+  return match ? match[1] : null;
+}
+
 interface Props {
   entry: FeedEntry;
   active: boolean;
@@ -54,33 +60,61 @@ function RailButton({
 export default function Player({ entry, active, isMuted, onToggleMute, onBack, onOpenSeries, onEnded }: Props) {
   const series = getSeries(entry.seriesId)!;
   const [progress, setProgress] = useState(0);
+  const duration = entry.duration || 90; // Use hardcoded duration from data.ts
   const [paused, setPaused] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  // Play/pause based on active state and user interaction
+  const videoUrl = entry.videoUrl || "https://www.youtube.com/watch?v=aqz-KE-bpKQ";
+  const videoId = extractYoutubeId(videoUrl);
+
+  // Send postMessage to YouTube Iframe
+  const sendCommand = useCallback((func: string, args: any[] = []) => {
+    if (!iframeRef.current?.contentWindow) return;
+    try {
+      iframeRef.current.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func, args }),
+        '*'
+      );
+    } catch (e) {}
+  }, []);
+
+  // Play / Pause via postMessage
   useEffect(() => {
-    if (!videoRef.current) return;
-    
-    if (active && !paused) {
-      videoRef.current.play().catch(() => {
-        // Autoplay may be blocked by browser
-        setPaused(true);
-      });
-    } else {
-      videoRef.current.pause();
-    }
-  }, [active, paused]);
+    // We use a small timeout to ensure the iframe is ready to receive messages after mount
+    const timer = setTimeout(() => {
+      sendCommand(active && !paused ? 'playVideo' : 'pauseVideo');
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [active, paused, sendCommand]);
 
-  // Reset progress when not active
+  // Mute / Unmute via postMessage
+  useEffect(() => {
+    sendCommand(isMuted ? 'mute' : 'unMute');
+  }, [isMuted, sendCommand]);
+
+  // Reset Progress when inactive
   useEffect(() => {
     if (!active) {
       setProgress(0);
       setPaused(false);
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-      }
+      sendCommand('seekTo', [0, true]);
     }
-  }, [active]);
+  }, [active, sendCommand]);
+
+  // Fake Progress Bar & Auto-End
+  useEffect(() => {
+    if (!active || paused) return;
+    const interval = setInterval(() => {
+      setProgress((p) => {
+        if (p >= duration) {
+          onEnded?.();
+          return p;
+        }
+        return p + 0.5; // Update every 500ms
+      });
+    }, 500);
+    return () => clearInterval(interval);
+  }, [active, paused, duration, onEnded]);
 
   const togglePause = useCallback(
     (e: React.MouseEvent) => {
@@ -90,16 +124,6 @@ export default function Player({ entry, active, isMuted, onToggleMute, onBack, o
     },
     []
   );
-
-  const handleTimeUpdate = () => {
-    if (videoRef.current) {
-      setProgress(videoRef.current.currentTime);
-    }
-  };
-
-  // Video URL (placeholder for now)
-  const videoUrl = entry.videoUrl || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
-  const duration = videoRef.current?.duration || entry.duration || 90;
 
   return (
     <div
@@ -113,23 +137,29 @@ export default function Player({ entry, active, isMuted, onToggleMute, onBack, o
         cursor: 'pointer',
       }}
     >
-      <video
-        ref={videoRef}
-        src={videoUrl}
-        poster={series.poster}
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={onEnded}
-        muted={isMuted}
-        playsInline
+      <div
         style={{
           width: '100%',
           height: '100%',
-          objectFit: 'cover',
           zIndex: 0,
-          filter: paused ? 'brightness(0.7)' : 'brightness(1)',
-          transition: 'filter 200ms',
+          position: 'absolute',
+          top: 0,
+          left: 0,
         }}
-      />
+      >
+        {videoId && (
+          <iframe
+            ref={iframeRef}
+            className="youtube-iframe-full"
+            src={`https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=${active ? 1 : 0}&mute=${isMuted ? 1 : 0}&controls=0&modestbranding=1&playsinline=1&rel=0&loop=1&playlist=${videoId}`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        )}
+      </div>
+
+      {/* Invisible click interceptor to ensure parent onClick works and iframe is not clicked directly */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1 }} />
 
       {/* Pause indicator */}
       {paused && (
