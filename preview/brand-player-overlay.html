@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 0; background: var(--paper); display: flex; align-items: center; justify-content: center; }
+  .frame { position: relative; width: 220px; height: 390px; border-radius: var(--r-xl); overflow: hidden; background: var(--ink); margin: 16px; box-shadow: var(--e3); }
+  .frame img { width: 100%; height: 100%; object-fit: cover; }
+  .top, .bot { position: absolute; left: 0; right: 0; padding: 14px 14px; color: #FAF7F2; z-index: 2; font-family: var(--font-sans); }
+  .top { top: 0; background: linear-gradient(to bottom, rgba(0,0,0,.7), transparent); display: flex; justify-content: space-between; align-items: center; font-size: 11px; letter-spacing: 0.1em; }
+  .top .cap { display: inline-block; padding: 4px 8px; border-radius: var(--r-full); background: rgba(15,14,13,.5); backdrop-filter: blur(10px); font-family: var(--font-mono); }
+  .bot { bottom: 0; background: linear-gradient(to top, rgba(0,0,0,.85), transparent); padding-top: 60px; padding-bottom: 20px; }
+  .title { font-weight: 600; font-size: 18px; letter-spacing: -0.01em; margin-bottom: 4px; }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: rgba(250,247,242,.7); margin-bottom: 10px; }
+  .prog { height: 3px; background: rgba(250,247,242,.2); border-radius: 99px; overflow: hidden; }
+  .prog > div { height: 100%; background: var(--plot-red); width: 62%; }
+  .info { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; color: rgba(250,247,242,.55); margin-top: 6px; }
+  .notes { font-family: var(--font-sans); font-size: 12px; color: var(--fg-2); margin: 0; padding: 16px 16px 16px 0; max-width: 300px; }
+  .notes strong { color: var(--fg-1); }
+  .wrap { display: flex; align-items: center; }
+</style></head>
+<body>
+<div class="wrap">
+  <div class="frame">
+    <img src="../assets/posters/the-tenth-date.svg" alt="">
+    <div class="top">
+      <span style="opacity:.7">PLOT</span>
+      <span class="cap">S1 · EP04</span>
+    </div>
+    <div class="bot">
+      <div class="title">열 번째 소개팅</div>
+      <div class="meta">#4 · 카페에서 만난 남자</div>
+      <div class="prog"><div></div></div>
+      <div class="info"><span>1:04</span><span>1:40</span></div>
+    </div>
+  </div>
+  <p class="notes"><strong>Player chrome anatomy.</strong><br>Top-left wordmark + top-right episode capsule. Bottom protection gradient holds title, episode meta, progress bar, timecode — in that vertical order. Nothing else on screen.</p>
+</div>
+</body></html>

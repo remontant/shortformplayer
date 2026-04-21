@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 24px; background: var(--paper); }
+  .stack { display: flex; flex-direction: column; gap: 12px; max-width: 460px; }
+  .ex { padding: 10px 14px; border-radius: var(--r-md); display: flex; gap: 12px; align-items: flex-start; }
+  .good { background: var(--paper-2); border-left: 2px solid var(--success); }
+  .bad { background: var(--paper-2); border-left: 2px solid var(--danger); text-decoration: line-through; text-decoration-color: var(--danger); text-decoration-thickness: 1px; }
+  .tag { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; flex-shrink: 0; width: 32px; padding-top: 2px; }
+  .good .tag { color: var(--success); }
+  .bad .tag { color: var(--danger); text-decoration: none; }
+  .txt { font-family: var(--font-sans); font-size: 13px; color: var(--fg-1); }
+  .bad .txt { color: var(--fg-2); }
+</style></head>
+<body>
+<div class="stack">
+  <div class="ex good"><span class="tag">Do</span><span class="txt">아직 저장한 회차가 없어요. 맘에 드는 장면에서 ♡ 눌러보세요.</span></div>
+  <div class="ex bad"><span class="tag">Don't</span><span class="txt">저장된 콘텐츠가 없습니다.</span></div>
+  <div class="ex good"><span class="tag">Do</span><span class="txt">어디선가 연결이 끊겼어요. 다시 해볼까요?</span></div>
+  <div class="ex bad"><span class="tag">Don't</span><span class="txt">오류가 발생했습니다. 네트워크를 확인해주세요.</span></div>
+  <div class="ex good"><span class="tag">Do</span><span class="txt">다음 편으로 이어집니다</span></div>
+  <div class="ex bad"><span class="tag">Don't</span><span class="txt">🎉 다음 에피소드로 계속 시청하세요!!</span></div>
+</div>
+</body></html>

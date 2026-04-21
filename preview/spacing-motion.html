@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 24px; background: var(--paper); }
+  .row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .box { width: 88px; height: 88px; border-radius: var(--r-md); background: var(--plot-red); display: flex; align-items: center; justify-content: center; color: #FAF7F2; font-family: var(--font-mono); font-size: 11px; cursor: pointer; }
+  .b1 { animation: pop 1400ms var(--ease-out-quint) infinite; }
+  .b2 { animation: fade 1800ms ease-in-out infinite; background: var(--ink); }
+  .b3 { animation: slide 1600ms var(--ease-out-quint) infinite; background: var(--n-700); }
+  .b4 { animation: scrub 2000ms ease-in-out infinite; background: var(--plot-red-press); }
+  @keyframes pop { 0%,65% {transform:scale(1)} 75% {transform:scale(.9)} 85% {transform:scale(1.2)} 100% {transform:scale(1)} }
+  @keyframes fade { 0%,100% {opacity:1} 50% {opacity:.3} }
+  @keyframes slide { 0% {transform:translateY(12px);opacity:0} 30%,90% {transform:translateY(0);opacity:1} 100% {transform:translateY(-8px);opacity:0} }
+  @keyframes scrub { 0%,100% {transform:translateX(0)} 50% {transform:translateX(36px)} }
+  .cap { font-family: var(--font-sans); font-size: 11px; color: var(--fg-2); margin-top: 8px; text-align: center; display: block; }
+  .cell { display: flex; flex-direction: column; align-items: center; }
+</style></head>
+<body>
+<div class="row">
+  <div class="cell"><div class="box b1">like pop</div><span class="cap">0.9 → 1.2 → 1.0<br>300ms spring</span></div>
+  <div class="cell"><div class="box b2">fade</div><span class="cap">slide transitions<br>120ms</span></div>
+  <div class="cell"><div class="box b3">slide</div><span class="cap">ease-out-quint<br>250ms</span></div>
+  <div class="cell"><div class="box b4">scrub</div><span class="cap">swipe physics<br>400ms</span></div>
+</div>
+<p style="margin:16px 0 0;font-size:12px;color:var(--fg-2);font-family:var(--font-sans)">cubic-bezier(0.22, 1, 0.36, 1) ease-out-quint. Bouncy reserved for ♡; everything else calm.</p>
+</body></html>

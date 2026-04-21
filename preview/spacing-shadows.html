@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 32px; background: var(--paper); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .cell { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .cell > .box { width: 84px; height: 84px; background: var(--paper); border-radius: var(--r-md); border: 1px solid var(--ink-10); }
+  .cell.e1 .box { box-shadow: var(--e1); }
+  .cell.e2 .box { box-shadow: var(--e2); }
+  .cell.e3 .box { box-shadow: var(--e3); }
+  .cell.e4 { background: var(--ink); padding: 16px; border-radius: var(--r-md); }
+  .cell.e4 .box { background: var(--ink-2); border-color: rgba(250,247,242,.1); box-shadow: var(--e4); }
+  .cell.e4 .nm { color: #FAF7F2; }
+  .cell.e4 .val { color: rgba(250,247,242,.55); }
+  .nm { font-family: var(--font-sans); font-size: 12px; font-weight: 600; }
+  .val { font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); text-align: center; }
+</style></head>
+<body>
+<div class="grid">
+  <div class="cell e1"><div class="box"></div><div class="nm">e1</div><div class="val">card rest</div></div>
+  <div class="cell e2"><div class="box"></div><div class="nm">e2</div><div class="val">card hover</div></div>
+  <div class="cell e3"><div class="box"></div><div class="nm">e3</div><div class="val">modal</div></div>
+  <div class="cell e4"><div class="box"></div><div class="nm">e4</div><div class="val">on dark canvas</div></div>
+</div>
+</body></html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 24px; background: var(--ink); color: #FAF7F2; }
+  .stack { display: flex; flex-direction: column; gap: 20px; }
+  .track { height: 3px; background: rgba(250,247,242,.2); border-radius: var(--r-full); overflow: hidden; position: relative; }
+  .fill { height: 100%; background: var(--plot-red); border-radius: var(--r-full); transition: width 120ms linear; }
+  .track.thick { height: 6px; }
+  .meta { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: rgba(250,247,242,.65); margin-top: 6px; }
+  .label { font-family: var(--font-sans); font-size: 11px; color: rgba(250,247,242,.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+</style></head>
+<body>
+<div class="stack">
+  <div>
+    <div class="label">Default · 3px</div>
+    <div class="track"><div class="fill" style="width:42%"></div></div>
+    <div class="meta"><span>0:42</span><span>1:40</span></div>
+  </div>
+  <div>
+    <div class="label">Scrubbing · 6px</div>
+    <div class="track thick"><div class="fill" style="width:72%"></div></div>
+    <div class="meta"><span>1:12</span><span>1:40</span></div>
+  </div>
+</div>
+</body></html>

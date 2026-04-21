@@ -1,0 +1,21 @@
+<svg width="360" height="640" viewBox="0 0 360 640" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0E2A3A"></stop>
+      <stop offset="60%" stop-color="#133E52"></stop>
+      <stop offset="100%" stop-color="#05131B"></stop>
+    </linearGradient>
+    <linearGradient id="shade2" x1="0" y1="0.6" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(0,0,0,0)"></stop>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.85)"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="640" fill="url(#g2)"></rect>
+  <circle cx="260" cy="180" r="120" fill="rgba(255,255,255,0.06)"></circle>
+  <path d="M0 420 Q 180 340 360 420 L 360 640 L 0 640 Z" fill="rgba(5,19,27,0.7)"></path>
+  <rect y="380" width="360" height="260" fill="url(#shade2)"></rect>
+  <text x="24" y="44" font-family="Geist, sans-serif" font-size="12" font-weight="500" fill="rgba(250,247,242,0.45)" letter-spacing="0.14em">PLOT</text>
+  <text x="24" y="540" font-family="Geist Mono, monospace" font-size="11" font-weight="500" fill="rgba(250,247,242,0.7)" letter-spacing="0.1em">S2 · 12 EP · 스릴러</text>
+  <text x="24" y="584" font-family="Geist, sans-serif" font-size="32" font-weight="600" fill="#FAF7F2" letter-spacing="-0.02em">밤의 편의점</text>
+  <text x="24" y="620" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="rgba(250,247,242,0.75)" letter-spacing="0">3시, 손님이 아닌 것이 온다.</text>
+</svg>

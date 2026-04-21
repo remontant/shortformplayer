@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .cell { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .box { width: 80px; height: 80px; background: var(--n-200); border: 1px solid var(--ink-10); }
+  .box.sm { border-radius: var(--r-sm); }
+  .box.md { border-radius: var(--r-md); }
+  .box.lg { border-radius: var(--r-lg); }
+  .box.xl { border-radius: var(--r-xl); }
+  .box.full { border-radius: var(--r-full); }
+  .nm { font-family: var(--font-sans); font-size: 12px; font-weight: 600; }
+  .val { font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); }
+</style></head>
+<body>
+<div class="grid">
+  <div class="cell"><div class="box sm"></div><div class="nm">sm</div><div class="val">6px</div></div>
+  <div class="cell"><div class="box md"></div><div class="nm">md</div><div class="val">10px</div></div>
+  <div class="cell"><div class="box lg"></div><div class="nm">lg</div><div class="val">16px</div></div>
+  <div class="cell"><div class="box xl"></div><div class="nm">xl</div><div class="val">24px</div></div>
+  <div class="cell"><div class="box full"></div><div class="nm">full</div><div class="val">9999</div></div>
+</div>
+</body></html>

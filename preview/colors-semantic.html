@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .sw { border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--ink-10); }
+  .chip { height: 64px; }
+  .m { padding: 8px 10px; font-family: var(--font-sans); font-size: 12px; display: flex; justify-content: space-between; }
+  .n { font-weight: 600; }
+  .h { font-family: var(--font-mono); color: var(--fg-2); font-size: 11px; }
+</style></head>
+<body>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background:#2E8B57"></div><div class="m"><span class="n">Success</span><span class="h">#2E8B57</span></div></div>
+  <div class="sw"><div class="chip" style="background:#C97B1E"></div><div class="m"><span class="n">Warning</span><span class="h">#C97B1E</span></div></div>
+  <div class="sw"><div class="chip" style="background:#C8202D"></div><div class="m"><span class="n">Danger</span><span class="h">#C8202D</span></div></div>
+</div>
+<p style="margin:12px 0 0;font-size:12px;color:var(--fg-2);font-family:var(--font-sans)">Used sparingly — Plot Red owns the accent surface; semantic colors only for status/error states.</p>
+</body></html>

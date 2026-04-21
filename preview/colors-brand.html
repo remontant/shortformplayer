@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 20px; }
+  .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .sw { border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--ink-10); }
+  .chip { height: 78px; display: flex; align-items: flex-end; padding: 10px; }
+  .meta { background: var(--paper); padding: 8px 10px; font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); display: flex; justify-content: space-between; }
+  .name { font-family: var(--font-sans); font-size: 12px; font-weight: 600; color: var(--fg-1); }
+</style></head>
+<body>
+<div class="wrap">
+  <div class="sw"><div class="chip" style="background:#FAF7F2"></div><div class="meta"><span class="name">Paper</span><span>#FAF7F2</span></div></div>
+  <div class="sw"><div class="chip" style="background:#0F0E0D"></div><div class="meta"><span class="name" style="color:#0F0E0D">Ink</span><span>#0F0E0D</span></div></div>
+  <div class="sw"><div class="chip" style="background:#E63946"></div><div class="meta"><span class="name">Plot Red</span><span>#E63946</span></div></div>
+  <div class="sw"><div class="chip" style="background:#FDE7E9"></div><div class="meta"><span class="name">Red Soft</span><span>#FDE7E9</span></div></div>
+</div>
+</body></html>

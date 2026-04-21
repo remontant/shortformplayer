@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Plot Design System — Colors & Type Tokens
+   ========================================================================== */
+
+/* -- Webfonts ------------------------------------------------------------- */
+/* Geist + Geist Mono via Vercel CDN (official) */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+/* Pretendard for Korean */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+
+:root {
+  /* =========================================================================
+     COLORS — Base
+     ========================================================================= */
+
+  /* Canvas */
+  --paper:          #FAF7F2;   /* light mode background — warm off-white */
+  --paper-2:        #F3EFE7;   /* subtle surface (cards hover, dividers bg) */
+  --ink:            #0F0E0D;   /* main text + player canvas */
+  --ink-2:          #1A1816;   /* slightly elevated dark surface */
+
+  /* Neutral scale (warm grays from ink to paper) */
+  --n-900:          #0F0E0D;
+  --n-800:          #29201C;
+  --n-700:          #453A33;
+  --n-600:          #66584F;
+  --n-500:          #897A6F;
+  --n-400:          #B0A499;
+  --n-300:          #D4CBC0;
+  --n-200:          #E6DFD4;
+  --n-100:          #F3EFE7;
+  --n-050:          #FAF7F2;
+
+  /* Brand accent — used sparingly */
+  --plot-red:       #E63946;
+  --plot-red-hover: #F04C58;
+  --plot-red-press: #C8202D;
+  --plot-red-soft:  #FDE7E9;   /* tinted bg for badges / empty states */
+
+  /* Semantic */
+  --success:        #2E8B57;
+  --warning:        #C97B1E;
+  --danger:         #C8202D;
+
+  /* Alpha ink (over paper) */
+  --ink-05:         rgba(15, 14, 13, 0.05);
+  --ink-10:         rgba(15, 14, 13, 0.10);
+  --ink-20:         rgba(15, 14, 13, 0.20);
+  --ink-40:         rgba(15, 14, 13, 0.40);
+  --ink-60:         rgba(15, 14, 13, 0.60);
+  --ink-80:         rgba(15, 14, 13, 0.80);
+
+  /* Alpha paper (over player/ink canvas) */
+  --paper-10:       rgba(250, 247, 242, 0.10);
+  --paper-20:       rgba(250, 247, 242, 0.20);
+  --paper-40:       rgba(250, 247, 242, 0.40);
+  --paper-60:       rgba(250, 247, 242, 0.60);
+  --paper-80:       rgba(250, 247, 242, 0.80);
+
+  /* Semantic foreground / background shorthands */
+  --fg-1:           var(--ink);         /* primary text */
+  --fg-2:           var(--n-600);       /* secondary text */
+  --fg-3:           var(--n-500);       /* tertiary / caption */
+  --fg-invert:      var(--paper);       /* text on dark canvas */
+  --bg-1:           var(--paper);       /* primary bg */
+  --bg-2:           var(--n-100);       /* secondary surface */
+  --bg-canvas:      var(--ink);         /* player canvas */
+
+  /* =========================================================================
+     TYPE
+     ========================================================================= */
+
+  --font-sans:      'Geist', 'Pretendard Variable', Pretendard,
+                    -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:      'Geist Mono', 'SF Mono', 'JetBrains Mono', monospace;
+  --font-display:   var(--font-sans);
+
+  /* Type ramp (px) */
+  --t-d1:           72px;   /* hero display */
+  --t-d2:           56px;
+  --t-d3:           40px;
+  --t-h1:           32px;
+  --t-h2:           24px;
+  --t-h3:           20px;
+  --t-body:         16px;
+  --t-sm:           14px;
+  --t-xs:           12px;
+
+  /* Line heights */
+  --lh-tight:       1.05;
+  --lh-snug:        1.2;
+  --lh-normal:      1.45;
+  --lh-relaxed:     1.6;
+
+  /* Tracking */
+  --track-display:  -0.025em;
+  --track-heading:  -0.015em;
+  --track-body:     0;
+  --track-mono:     0;
+
+  /* Weights */
+  --w-regular:      400;
+  --w-medium:       500;
+  --w-semibold:     600;
+  --w-bold:         700;
+
+  /* =========================================================================
+     SPACING (4px base ramp)
+     ========================================================================= */
+  --s-1:            4px;
+  --s-2:            8px;
+  --s-3:            12px;
+  --s-4:            16px;
+  --s-5:            24px;
+  --s-6:            32px;
+  --s-7:            48px;
+  --s-8:            64px;
+  --s-9:            96px;
+
+  /* =========================================================================
+     RADIUS
+     ========================================================================= */
+  --r-sm:           6px;
+  --r-md:           10px;
+  --r-lg:           16px;
+  --r-xl:           24px;
+  --r-full:         9999px;
+
+  /* =========================================================================
+     SHADOW
+     ========================================================================= */
+  --e1:             0 1px 2px rgba(15, 14, 13, 0.04);
+  --e2:             0 4px 12px rgba(15, 14, 13, 0.08);
+  --e3:             0 20px 48px rgba(15, 14, 13, 0.16);
+  --e4:             0 8px 32px rgba(0, 0, 0, 0.40);  /* on dark canvas */
+
+  /* =========================================================================
+     MOTION
+     ========================================================================= */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:    cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro:      150ms;
+  --dur-ui:         250ms;
+  --dur-motion:     400ms;
+
+  /* =========================================================================
+     LAYOUT
+     ========================================================================= */
+  --player-aspect:  calc(9 / 16);
+  --player-maxh:    90vh;
+  --safe-top:       env(safe-area-inset-top, 16px);
+  --safe-bottom:    env(safe-area-inset-bottom, 16px);
+}
+
+/* ==========================================================================
+   SEMANTIC ELEMENTS — minimal reset & defaults
+   ========================================================================== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-1);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--track-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--w-semibold);
+  letter-spacing: var(--track-heading);
+  line-height: var(--lh-snug);
+  margin: 0;
+}
+
+h1 { font-size: var(--t-h1); letter-spacing: var(--track-display); }
+h2 { font-size: var(--t-h2); }
+h3 { font-size: var(--t-h3); }
+
+p  { margin: 0; line-height: var(--lh-relaxed); }
+
+code, kbd, pre, .mono, .tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--track-mono);
+}
+
+/* Display utility classes */
+.t-display-1 { font-family: var(--font-display); font-size: var(--t-d1); font-weight: var(--w-semibold); line-height: var(--lh-tight); letter-spacing: var(--track-display); }
+.t-display-2 { font-family: var(--font-display); font-size: var(--t-d2); font-weight: var(--w-semibold); line-height: var(--lh-tight); letter-spacing: var(--track-display); }
+.t-display-3 { font-family: var(--font-display); font-size: var(--t-d3); font-weight: var(--w-semibold); line-height: var(--lh-snug);  letter-spacing: var(--track-display); }
+.t-h1        { font-size: var(--t-h1); font-weight: var(--w-semibold); line-height: var(--lh-snug); letter-spacing: var(--track-heading); }
+.t-h2        { font-size: var(--t-h2); font-weight: var(--w-semibold); line-height: var(--lh-snug); letter-spacing: var(--track-heading); }
+.t-h3        { font-size: var(--t-h3); font-weight: var(--w-semibold); line-height: var(--lh-snug); letter-spacing: var(--track-heading); }
+.t-body      { font-size: var(--t-body); font-weight: var(--w-regular); line-height: var(--lh-relaxed); }
+.t-sm        { font-size: var(--t-sm); font-weight: var(--w-regular); line-height: var(--lh-normal); }
+.t-xs        { font-size: var(--t-xs); font-weight: var(--w-medium); line-height: var(--lh-normal); }
+.t-mono      { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.t-caps      { text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Utility */
+.fg-1 { color: var(--fg-1); }
+.fg-2 { color: var(--fg-2); }
+.fg-3 { color: var(--fg-3); }
+.fg-brand { color: var(--plot-red); }
+.fg-invert { color: var(--fg-invert); }

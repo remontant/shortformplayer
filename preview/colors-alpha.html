@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 20px; background: #FAF7F2; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .group { }
+  .group h4 { font-size: 11px; color: var(--fg-2); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px; font-weight: 500; }
+  .stack { display: flex; flex-direction: column; gap: 4px; }
+  .row { display: flex; align-items: center; gap: 10px; padding: 6px 10px; border-radius: var(--r-sm); }
+  .dot { width: 24px; height: 24px; border-radius: var(--r-full); border: 1px solid var(--ink-10); flex-shrink: 0; }
+  .nm { font-family: var(--font-mono); font-size: 12px; flex: 1; }
+  .hex { font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); }
+</style></head>
+<body>
+<div class="grid">
+  <div class="group">
+    <h4>Alpha on Paper</h4>
+    <div class="stack">
+      <div class="row"><div class="dot" style="background:rgba(15,14,13,.05)"></div><div class="nm">ink/5</div><div class="hex">borders, dividers</div></div>
+      <div class="row"><div class="dot" style="background:rgba(15,14,13,.10)"></div><div class="nm">ink/10</div><div class="hex">default border</div></div>
+      <div class="row"><div class="dot" style="background:rgba(15,14,13,.20)"></div><div class="nm">ink/20</div><div class="hex">emphasized border</div></div>
+      <div class="row"><div class="dot" style="background:rgba(15,14,13,.40)"></div><div class="nm">ink/40</div><div class="hex">scrim light</div></div>
+      <div class="row"><div class="dot" style="background:rgba(15,14,13,.60)"></div><div class="nm">ink/60</div><div class="hex">scrim</div></div>
+    </div>
+  </div>
+  <div class="group" style="background:#0F0E0D;padding:12px;border-radius:var(--r-md);">
+    <h4 style="color:rgba(250,247,242,.55)">Alpha on Canvas</h4>
+    <div class="stack">
+      <div class="row"><div class="dot" style="background:rgba(250,247,242,.10);border-color:rgba(250,247,242,.2)"></div><div class="nm" style="color:#FAF7F2">paper/10</div><div class="hex" style="color:rgba(250,247,242,.5)">glass stroke</div></div>
+      <div class="row"><div class="dot" style="background:rgba(250,247,242,.20);border-color:rgba(250,247,242,.2)"></div><div class="nm" style="color:#FAF7F2">paper/20</div><div class="hex" style="color:rgba(250,247,242,.5)">subtle fill</div></div>
+      <div class="row"><div class="dot" style="background:rgba(250,247,242,.40);border-color:rgba(250,247,242,.2)"></div><div class="nm" style="color:#FAF7F2">paper/40</div><div class="hex" style="color:rgba(250,247,242,.5)">capsule bg</div></div>
+      <div class="row"><div class="dot" style="background:rgba(250,247,242,.60);border-color:rgba(250,247,242,.2)"></div><div class="nm" style="color:#FAF7F2">paper/60</div><div class="hex" style="color:rgba(250,247,242,.5)">secondary text</div></div>
+      <div class="row"><div class="dot" style="background:rgba(250,247,242,.80);border-color:rgba(250,247,242,.2)"></div><div class="nm" style="color:#FAF7F2">paper/80</div><div class="hex" style="color:rgba(250,247,242,.5)">primary on dark</div></div>
+    </div>
+  </div>
+</div>
+</body></html>

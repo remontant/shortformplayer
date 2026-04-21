@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 20px; }
+  .ramp { display: flex; align-items: flex-end; gap: 8px; }
+  .bar { background: var(--plot-red); border-radius: var(--r-sm); display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 6px; color: #FAF7F2; font-family: var(--font-mono); font-size: 10px; min-width: 32px; }
+  .lbl { font-family: var(--font-sans); font-size: 10px; color: var(--fg-2); margin-top: 4px; text-align: center; }
+  .wrap { display: flex; flex-direction: column; align-items: center; }
+</style></head>
+<body>
+<div class="ramp">
+  <div class="wrap"><div class="bar" style="height:4px;width:28px"></div><div class="lbl">4<br><span style="color:var(--fg-3)">s-1</span></div></div>
+  <div class="wrap"><div class="bar" style="height:8px;width:28px"></div><div class="lbl">8<br><span style="color:var(--fg-3)">s-2</span></div></div>
+  <div class="wrap"><div class="bar" style="height:12px;width:28px"></div><div class="lbl">12<br><span style="color:var(--fg-3)">s-3</span></div></div>
+  <div class="wrap"><div class="bar" style="height:16px;width:28px">16</div><div class="lbl">s-4</div></div>
+  <div class="wrap"><div class="bar" style="height:24px;width:28px">24</div><div class="lbl">s-5</div></div>
+  <div class="wrap"><div class="bar" style="height:32px;width:28px">32</div><div class="lbl">s-6</div></div>
+  <div class="wrap"><div class="bar" style="height:48px;width:32px">48</div><div class="lbl">s-7</div></div>
+  <div class="wrap"><div class="bar" style="height:64px;width:36px">64</div><div class="lbl">s-8</div></div>
+  <div class="wrap"><div class="bar" style="height:96px;width:44px">96</div><div class="lbl">s-9</div></div>
+</div>
+<p style="margin:16px 0 0;font-size:12px;color:var(--fg-2);font-family:var(--font-sans)">4px base ramp. Used for padding, gaps, margins. 16/24/32 carry most of the UI.</p>
+</body></html>

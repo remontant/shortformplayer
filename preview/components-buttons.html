@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 24px; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn { font-family: var(--font-sans); font-weight: 500; border: none; cursor: pointer;
+         transition: transform 80ms var(--ease-out-quint), background 150ms var(--ease-out-quint), box-shadow 150ms var(--ease-out-quint); }
+  .btn:active { transform: scale(0.96); }
+  .primary { background: var(--plot-red); color: #FAF7F2; padding: 10px 18px; border-radius: var(--r-md); font-size: 14px; }
+  .primary:hover { background: var(--plot-red-hover); }
+  .ghost { background: transparent; color: var(--ink); padding: 10px 18px; border-radius: var(--r-md); font-size: 14px; border: 1px solid var(--ink-10); }
+  .ghost:hover { background: var(--ink-05); }
+  .subtle { background: var(--ink-05); color: var(--ink); padding: 10px 18px; border-radius: var(--r-md); font-size: 14px; }
+  .subtle:hover { background: var(--ink-10); }
+  .sm { padding: 6px 12px; font-size: 13px; border-radius: var(--r-sm); }
+  .lg { padding: 14px 24px; font-size: 16px; border-radius: var(--r-md); font-weight: 600; }
+  .ico { display: inline-flex; align-items: center; gap: 6px; }
+</style></head>
+<body>
+<div class="row">
+  <button class="btn primary lg">다음 편 보기</button>
+  <button class="btn primary">저장하기</button>
+  <button class="btn primary sm">구독</button>
+  <button class="btn ghost">처음부터</button>
+  <button class="btn subtle">취소</button>
+</div>
+<p style="margin:16px 0 0;font-size:12px;color:var(--fg-2);font-family:var(--font-sans)">Primary uses Plot Red — reserved for one lead action per screen. Ghost + subtle for secondary.</p>
+</body></html>

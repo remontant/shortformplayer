@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 24px; }
+  .row { display: flex; gap: 24px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--ink-10); }
+  .row:last-child { border-bottom: none; }
+  .label { font-family: var(--font-sans); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.08em; width: 120px; flex-shrink: 0; }
+  .sample { font-family: var(--font-mono); font-size: 20px; font-variant-numeric: tabular-nums; letter-spacing: 0; }
+  .caption { font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); margin-left: auto; }
+</style></head>
+<body>
+<div class="row"><span class="label">Episode</span><span class="sample">S1 · EP04</span><span class="caption">middle-dot separator</span></div>
+<div class="row"><span class="label">Timecode</span><span class="sample">0:42 / 1:28</span><span class="caption">tabular nums, mono</span></div>
+<div class="row"><span class="label">Meta</span><span class="sample t-caps" style="font-size:13px;letter-spacing:0.12em">PLOT · 2026</span><span class="caption">watermark / footer</span></div>
+<div class="row"><span class="label">Progress</span><span class="sample" style="color:var(--plot-red)">62%</span><span class="caption">live counter</span></div>
+</body></html>
