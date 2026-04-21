@@ -40,11 +40,11 @@ function RailButton({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'rgba(250,247,242,0.10)',
-        border: '1px solid rgba(250,247,242,0.18)',
+        background: 'var(--ink-10)',
+        border: '1px solid var(--ink-20)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
-        color: '#FAF7F2',
+        color: 'var(--ink)',
         cursor: 'pointer',
         transition: 'transform 80ms cubic-bezier(0.22,1,0.36,1), background 150ms',
       }}
@@ -132,7 +132,7 @@ export default function Player({ entry, active, isMuted, onToggleMute, onBack, o
         position: 'relative',
         width: '100%',
         height: '100%',
-        background: '#0F0E0D',
+        background: 'var(--paper)',
         overflow: 'hidden',
         cursor: 'pointer',
       }}
@@ -179,15 +179,15 @@ export default function Player({ entry, active, isMuted, onToggleMute, onBack, o
               width: 80,
               height: 80,
               borderRadius: 9999,
-              background: 'rgba(15,14,13,0.55)',
+              background: 'var(--paper-60)',
               backdropFilter: 'blur(16px)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#FAF7F2',
+              color: 'var(--ink)',
             }}
           >
-            <Play size={32} strokeWidth={0} fill="#FAF7F2" />
+            <Play size={32} strokeWidth={0} fill="var(--ink)" />
           </div>
         </div>
       )}

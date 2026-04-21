@@ -77,11 +77,11 @@ export default function PlayerChrome({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'rgba(15,14,13,0.35)',
-              border: '1px solid rgba(250,247,242,0.14)',
+              background: 'var(--paper-40)',
+              border: '1px solid var(--ink-10)',
               backdropFilter: 'blur(10px)',
               WebkitBackdropFilter: 'blur(10px)',
-              color: '#FAF7F2',
+              color: 'var(--ink)',
               cursor: 'pointer',
               padding: 0,
             }}
@@ -94,11 +94,11 @@ export default function PlayerChrome({
               fontSize: 18,
               fontWeight: 700,
               letterSpacing: '0.02em',
-              color: 'rgba(250,247,242,0.95)',
+              color: 'var(--ink)',
               lineHeight: 1,
             }}
           >
-            Drama<span style={{ color: '#E63946' }}>Pann</span>
+            Drama<span style={{ color: 'var(--plot-red)' }}>Pann</span>
           </div>
         </div>
         <EpisodeBadge season={series.season} ep={ep} />
@@ -113,7 +113,7 @@ export default function PlayerChrome({
           right: 0,
           padding: '0 18px 20px',
           zIndex: 2,
-          color: '#FAF7F2',
+          color: 'var(--ink)',
         }}
       >
         <button
@@ -128,7 +128,7 @@ export default function PlayerChrome({
             padding: 0,
             cursor: 'pointer',
             textAlign: 'left',
-            color: '#FAF7F2',
+            color: 'var(--ink)',
             fontFamily: 'var(--font-sans)',
             fontSize: 22,
             fontWeight: 600,
@@ -143,7 +143,7 @@ export default function PlayerChrome({
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 11,
-            color: 'rgba(250,247,242,0.72)',
+            color: 'var(--ink-60)',
             marginBottom: 12,
           }}
         >
@@ -156,7 +156,7 @@ export default function PlayerChrome({
             justifyContent: 'space-between',
             fontFamily: 'var(--font-mono)',
             fontSize: 10,
-            color: 'rgba(250,247,242,0.55)',
+            color: 'var(--ink-60)',
             marginTop: 6,
             fontVariantNumeric: 'tabular-nums',
           }}

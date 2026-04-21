@@ -113,14 +113,14 @@ export default function List({ onOpenSeries }: Props) {
                 left: 16,
                 padding: '5px 10px',
                 borderRadius: 9999,
-                background: 'rgba(250,247,242,0.16)',
-                border: '1px solid rgba(250,247,242,0.22)',
+                background: 'var(--paper-10)',
+                border: '1px solid var(--paper-20)',
                 backdropFilter: 'blur(10px)',
                 WebkitBackdropFilter: 'blur(10px)',
                 fontFamily: 'var(--font-mono)',
                 fontSize: 10,
                 letterSpacing: '0.12em',
-                color: '#FAF7F2',
+                color: 'var(--paper-80)',
                 textTransform: 'uppercase',
               }}
             >
@@ -133,7 +133,7 @@ export default function List({ onOpenSeries }: Props) {
                 left: 20,
                 right: 20,
                 bottom: 18,
-                color: '#FAF7F2',
+                color: 'var(--ink)',
               }}
             >
               <div
@@ -151,7 +151,7 @@ export default function List({ onOpenSeries }: Props) {
                 style={{
                   fontSize: 13,
                   lineHeight: 1.45,
-                  color: 'rgba(250,247,242,0.82)',
+                  color: 'var(--ink-80)',
                   marginBottom: 14,
                 }}
               >
@@ -165,23 +165,23 @@ export default function List({ onOpenSeries }: Props) {
                   gap: 8,
                   padding: '10px 16px',
                   borderRadius: 9999,
-                  background: '#FAF7F2',
-                  color: '#0F0E0D',
+                  background: 'var(--ink)',
+                  color: 'var(--paper)',
                   fontSize: 13,
                   fontWeight: 600,
                   letterSpacing: '-0.01em',
                 }}
               >
-                <Play size={14} strokeWidth={0} fill="#0F0E0D" />
+                <Play size={14} strokeWidth={0} fill="var(--paper)" />
                 <span>EP1부터 보기</span>
                 <span
                   style={{
                     marginLeft: 4,
                     paddingLeft: 10,
-                    borderLeft: '1px solid rgba(15,14,13,0.18)',
+                    borderLeft: '1px solid var(--paper-20)',
                     fontFamily: 'var(--font-mono)',
                     fontSize: 11,
-                    color: 'rgba(15,14,13,0.55)',
+                    color: 'var(--paper-60)',
                     letterSpacing: '0.06em',
                   }}
                 >
@@ -365,12 +365,12 @@ export default function List({ onOpenSeries }: Props) {
                     background: 'var(--plot-red)',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#FAF7F2',
-                  }}
-                >
-                  <Play size={14} strokeWidth={0} fill="#FAF7F2" />
-                </div>
+                  justifyContent: 'center',
+                  color: 'var(--paper)',
+                }}
+              >
+                <Play size={14} strokeWidth={0} fill="var(--paper)" />
+              </div>
               )}
             </button>
           );

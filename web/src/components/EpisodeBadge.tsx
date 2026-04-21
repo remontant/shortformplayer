@@ -15,14 +15,14 @@ export default function EpisodeBadge({ season, ep, time }: Props) {
         gap: 8,
         padding: '6px 12px',
         borderRadius: 9999,
-        background: 'rgba(15,14,13,0.4)',
+        background: 'var(--paper-40)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
-        color: '#FAF7F2',
+        color: 'var(--ink)',
         fontFamily: 'var(--font-mono)',
         fontSize: 12,
         letterSpacing: '0.02em',
-        border: '1px solid rgba(250,247,242,0.14)',
+        border: '1px solid var(--ink-10)',
       }}
     >
       <span>

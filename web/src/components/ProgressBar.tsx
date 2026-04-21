@@ -12,7 +12,7 @@ export default function ProgressBar({ value, total, thick = false }: Props) {
     <div
       style={{
         height: thick ? 6 : 3,
-        background: 'rgba(250,247,242,0.2)',
+        background: 'var(--ink-20)',
         borderRadius: 9999,
         overflow: 'hidden',
       }}

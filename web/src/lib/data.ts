@@ -17,6 +17,13 @@ export interface Series {
   stills: string[];
   episodes: Episode[];
   isComingSoon?: boolean;
+  directorInfo?: string;
+  year?: number;
+  gradeAge?: string;
+  gradeTheme?: string[];
+  keywords?: string[];
+  cast?: string[];
+  creator?: string;
 }
 
 export interface FeedEntry {
@@ -35,11 +42,18 @@ export const SERIES: Series[] = [
     id: 'tenth-date',
     title: '폭풍같은 결혼생활',
     tagline: '매번 실패하는데도 왜 또 나가는 걸까.',
-    synopsis: '서른셋의 기획자 지아. 엄마의 등쌀에 떠밀려 소개팅만 아홉 번. 열 번째 자리에서 만난 남자는, 뭔가 달랐다.',
+    synopsis: '남사친에서 애아빠 되다?! 황당한 제안 후 공동 육아로 시작된 두 사람의 선 넘는 대환장 로맨스',
     poster: '//news.nateimg.co.kr/orgImg/dn/2025/12/25/news_1766621867_1590110_m_1.jpg',
-    genre: '로맨스',
+    genre: '로맨틱 코미디',
     season: 1,
-    totalEp: 20,
+    totalEp: 15,
+    directorInfo: '<극한직업> 이병헌감독 연출 숏드라마',
+    year: 2026,
+    gradeAge: '15',
+    gradeTheme: ['폭력성', '언어', '선정성'],
+    keywords: ['계약연애', '육아', '계약결혼', '감동', '코믹'],
+    cast: ['김신비', '최효주', '배윤경', '박지안'],
+    creator: '이병헌',
     stills: [
       '/assets/stills/tenth-date-1.svg',
       '/assets/stills/tenth-date-2.svg',

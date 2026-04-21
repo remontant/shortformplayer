@@ -59,24 +59,32 @@ export default function App() {
   if (!mounted) return null;
 
   return (
-    <div
-      style={{
-        width: '100%',
-        maxWidth: 700,
-        margin: '0 auto',
-        minHeight: '100dvh',
-        position: 'relative',
-        background: route === 'feed' ? '#0F0E0D' : 'var(--paper)',
-        transition: 'background 200ms',
-      }}
-    >
-      {route === 'list' && <List onOpenSeries={openSeries} />}
-      {route === 'feed' && seriesId && (
-        <Feed seriesId={seriesId} onBack={backToList} onOpenSeries={openDetail} />
-      )}
-      {route === 'series' && seriesId && (
-        <SeriesDetail seriesId={seriesId} onBack={backToFeed} onWatch={backToFeed} />
-      )}
-    </div>
+    <>
+      <div className="side-text side-text-left">
+        DRAMA PANN <span style={{ opacity: 0.4 }}>·</span> 한 입씩 먹는 드라마
+      </div>
+      <div className="side-text side-text-right">
+        2026 <span style={{ opacity: 0.4 }}>·</span> VERTICAL CINEMA
+      </div>
+      <div
+        style={{
+          width: '100%',
+          maxWidth: 690,
+          margin: '0 auto',
+          minHeight: '100dvh',
+          position: 'relative',
+          background: 'var(--paper)',
+          transition: 'background 200ms',
+        }}
+      >
+        {route === 'list' && <List onOpenSeries={openSeries} />}
+        {route === 'feed' && seriesId && (
+          <Feed seriesId={seriesId} onBack={backToList} onOpenSeries={openDetail} />
+        )}
+        {route === 'series' && seriesId && (
+          <SeriesDetail seriesId={seriesId} onBack={backToFeed} onWatch={backToFeed} />
+        )}
+      </div>
+    </>
   );
 }

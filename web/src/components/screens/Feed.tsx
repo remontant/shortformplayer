@@ -112,7 +112,7 @@ export default function Feed({ seriesId, onBack, onOpenSeries }: Props) {
         position: 'absolute',
         inset: 0,
         overflow: 'hidden',
-        background: '#0F0E0D',
+        background: 'var(--paper)',
       }}
     >
       <div
@@ -173,7 +173,7 @@ export default function Feed({ seriesId, onBack, onOpenSeries }: Props) {
             left: '50%',
             zIndex: 5,
             pointerEvents: 'none',
-            color: 'rgba(250,247,242,0.55)',
+            color: 'var(--ink-60)',
             fontSize: 11,
             fontFamily: 'var(--font-mono)',
             letterSpacing: '0.06em',
