@@ -188,7 +188,7 @@ export default function ComingSoon({ entry, onBackToList }: Props) {
                 <circle cx="12" cy="12" r="7" fill="#E5A900"/>
                 <path d="M12 16.5C9.5 16.5 7.5 14.5 7.5 12C7.5 9.5 9.5 7.5 12 7.5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round"/>
               </svg>
-              200
+              800
             </span>
           </button>
 
@@ -229,7 +229,7 @@ export default function ComingSoon({ entry, onBackToList }: Props) {
             <span style={{ fontSize: 12, opacity: 0.9, fontWeight: 500 }}>전체 관람 (할인)</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
               <span style={{ textDecoration: 'line-through', opacity: 0.6, fontSize: 11, fontWeight: 500 }}>
-                15,000
+                12,500
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#FFD700', fontSize: 16 }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -237,7 +237,7 @@ export default function ComingSoon({ entry, onBackToList }: Props) {
                   <circle cx="12" cy="12" r="7" fill="#FDB813"/>
                   <path d="M12 16.5C9.5 16.5 7.5 14.5 7.5 12C7.5 9.5 9.5 7.5 12 7.5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
-                12,000
+                11,500
               </span>
             </div>
           </button>

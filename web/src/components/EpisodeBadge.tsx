@@ -1,12 +1,12 @@
 'use client';
 
 interface Props {
-  season: number;
   ep: number;
+  totalEp: number;
   time?: string;
 }
 
-export default function EpisodeBadge({ season, ep, time }: Props) {
+export default function EpisodeBadge({ ep, totalEp, time }: Props) {
   return (
     <div
       style={{
@@ -25,8 +25,8 @@ export default function EpisodeBadge({ season, ep, time }: Props) {
         border: '1px solid var(--ink-10)',
       }}
     >
-      <span>
-        S{season}·EP{String(ep).padStart(2, '0')}
+      <span style={{ fontVariantNumeric: 'tabular-nums' }}>
+        {String(ep).padStart(2, '0')} <span style={{ opacity: 0.4, margin: '0 2px' }}>/</span> {String(totalEp).padStart(2, '0')}
       </span>
       {time && (
         <>

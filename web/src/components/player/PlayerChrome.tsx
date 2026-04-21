@@ -101,7 +101,7 @@ export default function PlayerChrome({
             Drama<span style={{ color: 'var(--plot-red)' }}>Pann</span>
           </div>
         </div>
-        <EpisodeBadge season={series.season} ep={ep} />
+        <EpisodeBadge ep={ep} totalEp={series.totalEp} />
       </div>
 
       {/* Bottom meta */}
