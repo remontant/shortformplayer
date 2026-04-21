@@ -16,6 +16,7 @@ export interface Series {
   totalEp: number;
   stills: string[];
   episodes: Episode[];
+  isComingSoon?: boolean;
 }
 
 export interface FeedEntry {
@@ -117,6 +118,23 @@ export const SERIES: Series[] = [
       { ep: 4, title: '첫사랑의 편지', duration: 88 },
       { ep: 5, title: '돌아가는 길',   duration: 104 },
     ],
+  },
+  {
+    id: 'top-of-class',
+    title: '일등의 세계',
+    tagline: '전교 1등은 어떻게 만들어지는가.',
+    synopsis: '언제나 1등을 놓치지 않던 서연. 하지만 새로운 전학생이 오면서 완벽했던 그녀의 세계에 금이 가기 시작한다.',
+    poster: '/assets/posters/top-of-the-class.svg',
+    genre: '미스터리',
+    season: 1,
+    totalEp: 15,
+    stills: [
+      '/assets/stills/top-of-class-1.svg',
+      '/assets/stills/top-of-class-2.svg',
+      '/assets/stills/top-of-class-3.svg',
+    ],
+    episodes: [],
+    isComingSoon: true,
   },
 ];
 

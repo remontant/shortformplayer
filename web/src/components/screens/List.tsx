@@ -217,132 +217,141 @@ export default function List({ onOpenSeries }: Props) {
           flexDirection: 'column',
         }}
       >
-        {rest.map((s, i) => (
-          <button
-            key={s.id}
-            onClick={() => onOpenSeries(s.id)}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 14,
-              padding: '14px 8px',
-              border: 'none',
-              background: 'transparent',
-              cursor: 'pointer',
-              textAlign: 'left',
-              borderBottom:
-                i < rest.length - 1 ? '1px solid var(--ink-10)' : 'none',
-            }}
-          >
-            {/* Rank */}
-            <div
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 13,
-                fontWeight: 600,
-                color: 'var(--ink-40)',
-                width: 22,
-                textAlign: 'center',
-                flexShrink: 0,
-                fontVariantNumeric: 'tabular-nums',
+        {rest.map((s, i) => {
+          const isComingSoon = s.isComingSoon;
+
+          return (
+            <button
+              key={s.id}
+              onClick={() => {
+                if (!isComingSoon) onOpenSeries(s.id);
               }}
-            >
-              {String(i + 2).padStart(2, '0')}
-            </div>
-            {/* Poster thumb */}
-            <div
               style={{
-                width: 64,
-                height: 84,
-                borderRadius: 10,
-                overflow: 'hidden',
-                flexShrink: 0,
-                position: 'relative',
-                boxShadow: '0 0 0 1px var(--ink-10)',
-              }}
-            >
-              <Image
-                src={s.poster}
-                alt=""
-                fill
-                style={{ objectFit: 'cover' }}
-                unoptimized
-              />
-            </div>
-            {/* Meta */}
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div
-                style={{
-                  fontSize: 16,
-                  fontWeight: 600,
-                  color: 'var(--ink)',
-                  letterSpacing: '-0.01em',
-                  marginBottom: 4,
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}
-              >
-                {s.title}
-              </div>
-              <div
-                style={{
-                  fontSize: 12.5,
-                  color: 'var(--ink-60)',
-                  lineHeight: 1.4,
-                  marginBottom: 6,
-                  display: '-webkit-box',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden',
-                  wordBreak: 'keep-all',
-                } as React.CSSProperties}
-              >
-                {s.tagline}
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  gap: 8,
-                  alignItems: 'center',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: 10,
-                  letterSpacing: '0.08em',
-                  color: 'var(--ink-40)',
-                }}
-              >
-                <span>{s.genre}</span>
-                <span
-                  style={{
-                    width: 2,
-                    height: 2,
-                    borderRadius: 9999,
-                    background: 'var(--ink-20)',
-                  }}
-                />
-                <span>
-                  S{s.season} · {s.episodes.length}/{s.totalEp} EP
-                </span>
-              </div>
-            </div>
-            {/* Play glyph */}
-            <div
-              style={{
-                width: 36,
-                height: 36,
-                borderRadius: 9999,
-                flexShrink: 0,
-                background: 'var(--plot-red)',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                color: '#FAF7F2',
+                gap: 14,
+                padding: '14px 8px',
+                border: 'none',
+                background: 'transparent',
+                cursor: isComingSoon ? 'default' : 'pointer',
+                textAlign: 'left',
+                opacity: isComingSoon ? 0.4 : 1,
+                borderBottom:
+                  i < rest.length - 1 ? '1px solid var(--ink-10)' : 'none',
               }}
             >
-              <Play size={14} strokeWidth={0} fill="#FAF7F2" />
-            </div>
-          </button>
-        ))}
+              {/* Rank */}
+              <div
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: 'var(--ink-40)',
+                  width: 22,
+                  textAlign: 'center',
+                  flexShrink: 0,
+                  fontVariantNumeric: 'tabular-nums',
+                }}
+              >
+                {String(i + 2).padStart(2, '0')}
+              </div>
+              {/* Poster thumb */}
+              <div
+                style={{
+                  width: 64,
+                  height: 84,
+                  borderRadius: 10,
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                  position: 'relative',
+                  boxShadow: '0 0 0 1px var(--ink-10)',
+                }}
+              >
+                <Image
+                  src={s.poster}
+                  alt=""
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  unoptimized
+                />
+              </div>
+              {/* Meta */}
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div
+                  style={{
+                    fontSize: 16,
+                    fontWeight: 600,
+                    color: 'var(--ink)',
+                    letterSpacing: '-0.01em',
+                    marginBottom: 4,
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {s.title}
+                </div>
+                <div
+                  style={{
+                    fontSize: 12.5,
+                    color: 'var(--ink-60)',
+                    lineHeight: 1.4,
+                    marginBottom: 6,
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    wordBreak: 'keep-all',
+                  } as React.CSSProperties}
+                >
+                  {s.tagline}
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    gap: 8,
+                    alignItems: 'center',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 10,
+                    letterSpacing: '0.08em',
+                    color: 'var(--ink-40)',
+                  }}
+                >
+                  <span>{s.genre}</span>
+                  <span
+                    style={{
+                      width: 2,
+                      height: 2,
+                      borderRadius: 9999,
+                      background: 'var(--ink-20)',
+                    }}
+                  />
+                  <span>
+                    S{s.season} · {isComingSoon ? '공개 예정' : `${s.episodes.length}/${s.totalEp} EP`}
+                  </span>
+                </div>
+              </div>
+              {/* Play glyph */}
+              {!isComingSoon && (
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: 9999,
+                    flexShrink: 0,
+                    background: 'var(--plot-red)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#FAF7F2',
+                  }}
+                >
+                  <Play size={14} strokeWidth={0} fill="#FAF7F2" />
+                </div>
+              )}
+            </button>
+          );
+        })}
       </div>
 
       {/* Footer */}
