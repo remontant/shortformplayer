@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body style={{ margin: 0, overflow: 'hidden' }}>{children}</body>
+      <body style={{ margin: 0 }}>{children}</body>
     </html>
   );
 }

@@ -17,11 +17,9 @@ export default function List({ onOpenSeries }: Props) {
   return (
     <div
       style={{
-        position: 'absolute',
-        inset: 0,
         background: 'var(--paper)',
-        overflowY: 'auto',
         fontFamily: 'var(--font-sans)',
+        minHeight: '100vh',
       }}
     >
       {/* Sticky header */}

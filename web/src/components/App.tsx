@@ -64,9 +64,8 @@ export default function App() {
         width: '100%',
         maxWidth: 700,
         margin: '0 auto',
-        height: '100dvh',
+        minHeight: '100dvh',
         position: 'relative',
-        overflow: 'hidden',
         background: route === 'feed' ? '#0F0E0D' : 'var(--paper)',
         transition: 'background 200ms',
       }}

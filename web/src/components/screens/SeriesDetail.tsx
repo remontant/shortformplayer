@@ -17,9 +17,6 @@ export default function SeriesDetail({ seriesId, onBack, onWatch }: Props) {
   return (
     <div
       style={{
-        position: 'absolute',
-        inset: 0,
-        overflowY: 'auto',
         background: 'var(--paper)',
       }}
     >
