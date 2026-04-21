@@ -24,6 +24,7 @@ export interface FeedEntry {
   ep?: number;
   epTitle?: string;
   duration?: number;
+  videoUrl?: string;
   comingSoon?: boolean;
   nextEp?: number;
 }
