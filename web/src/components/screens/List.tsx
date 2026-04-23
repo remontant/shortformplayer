@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { SERIES } from '@/lib/data';
-import { Play, Search } from '@/components/Icons';
+import { Play } from '@/components/Icons';
 
 interface Props {
   onOpenSeries: (id: string) => void;
@@ -15,176 +15,52 @@ export default function List({ onOpenSeries }: Props) {
   if (!featured) return null;
 
   return (
-    <div
-      style={{
-        background: 'var(--paper)',
-        fontFamily: 'var(--font-sans)',
-        minHeight: '100vh',
-      }}
-    >
+    <div className="bg-[var(--paper)] font-[family-name:var(--font-sans)] min-h-screen">
       {/* Sticky header */}
-      <div
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 5,
-          background: 'var(--paper)',
-          padding: '22px 20px 16px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          borderBottom: '1px solid var(--ink-10)',
-        }}
-      >
-        <div
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: 22,
-            fontWeight: 700,
-            letterSpacing: '-0.01em',
-            color: 'var(--ink)',
-            lineHeight: 1,
-          }}
-        >
-          Drama <span style={{ color: 'var(--plot-red)' }}>Pann</span>
+      <div className="sticky top-0 z-[5] bg-[var(--paper)] pt-[22px] px-5 pb-4 flex items-center justify-between border-b border-[var(--ink-10)]">
+        <div className="font-[family-name:var(--font-sans)] text-[22px] font-bold tracking-[-0.01em] text-[var(--ink)] leading-none">
+          Drama <span className="text-[var(--plot-red)]">Pann</span>
         </div>
       </div>
 
       {/* Section label */}
-      <div
-        style={{
-          padding: '20px 20px 10px',
-          fontFamily: 'var(--font-mono)',
-          fontSize: 11,
-          letterSpacing: '0.18em',
-          color: 'var(--ink-60)',
-          textTransform: 'uppercase',
-        }}
-      >
+      <div className="px-5 pt-5 pb-2.5 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.18em] text-[var(--ink-60)] uppercase">
         NOW PLAYING
       </div>
 
       {/* Featured card */}
-      <div style={{ padding: '0 20px 28px' }}>
+      <div className="px-5 pb-7">
         <button
           onClick={() => onOpenSeries(featured.id)}
-          style={{
-            display: 'block',
-            width: '100%',
-            padding: 0,
-            border: 'none',
-            background: 'transparent',
-            cursor: 'pointer',
-            textAlign: 'left',
-          }}
+          className="block w-full p-0 border-none bg-transparent cursor-pointer text-left"
         >
-          <div
-            style={{
-              position: 'relative',
-              width: '100%',
-              aspectRatio: '4 / 5',
-              borderRadius: 20,
-              overflow: 'hidden',
-              boxShadow: '0 12px 32px rgba(15,14,13,0.20), 0 0 0 1px var(--ink-10)',
-            }}
-          >
+          <div className="relative w-full aspect-[4/5] rounded-[20px] overflow-hidden shadow-[0_12px_32px_rgba(15,14,13,0.20),0_0_0_1px_var(--ink-10)]">
             <Image
               src={featured.poster}
               alt=""
               fill
-              style={{ objectFit: 'cover' }}
+              className="object-cover"
               unoptimized
             />
             {/* Bottom gradient overlay */}
-            <div
-              style={{
-                position: 'absolute',
-                inset: 'auto 0 0 0',
-                height: '62%',
-                background:
-                  'linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.25) 55%, transparent)',
-              }}
-            />
+            <div className="absolute inset-[auto_0_0_0] h-[62%] bg-[linear-gradient(to_top,rgba(0,0,0,0.88),rgba(0,0,0,0.25)_55%,transparent)]" />
             {/* Genre chip */}
-            <div
-              style={{
-                position: 'absolute',
-                top: 16,
-                left: 16,
-                padding: '5px 10px',
-                borderRadius: 9999,
-                background: 'var(--paper-10)',
-                border: '1px solid var(--paper-20)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: 10,
-                letterSpacing: '0.12em',
-                color: 'var(--paper-80)',
-                textTransform: 'uppercase',
-              }}
-            >
+            <div className="absolute top-4 left-4 px-2.5 py-1.5 rounded-full bg-[var(--paper-10)] border border-[var(--paper-20)] backdrop-blur-[10px] font-[family-name:var(--font-mono)] text-[10px] tracking-[0.12em] text-[var(--paper-80)] uppercase">
               {featured.genre}
             </div>
             {/* Text block */}
-            <div
-              style={{
-                position: 'absolute',
-                left: 20,
-                right: 20,
-                bottom: 18,
-                color: 'var(--ink)',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 26,
-                  fontWeight: 700,
-                  letterSpacing: '-0.02em',
-                  lineHeight: 1.15,
-                  marginBottom: 6,
-                }}
-              >
+            <div className="absolute left-5 right-5 bottom-[18px] text-[var(--ink)]">
+              <div className="text-[26px] font-bold tracking-[-0.02em] leading-[1.15] mb-1.5">
                 {featured.title}
               </div>
-              <div
-                style={{
-                  fontSize: 13,
-                  lineHeight: 1.45,
-                  color: 'var(--ink-80)',
-                  marginBottom: 14,
-                }}
-              >
+              <div className="text-[13px] leading-[1.45] text-[var(--ink-80)] mb-[14px]">
                 {featured.tagline}
               </div>
               {/* CTA */}
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  padding: '10px 16px',
-                  borderRadius: 9999,
-                  background: 'var(--ink)',
-                  color: 'var(--paper)',
-                  fontSize: 13,
-                  fontWeight: 600,
-                  letterSpacing: '-0.01em',
-                }}
-              >
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[var(--ink)] text-[var(--paper)] text-[13px] font-semibold tracking-[-0.01em]">
                 <Play size={14} strokeWidth={0} fill="var(--paper)" />
                 <span>EP1부터 보기</span>
-                <span
-                  style={{
-                    marginLeft: 4,
-                    paddingLeft: 10,
-                    borderLeft: '1px solid var(--paper-20)',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 11,
-                    color: 'var(--paper-60)',
-                    letterSpacing: '0.06em',
-                  }}
-                >
+                <span className="ml-1 pl-2.5 border-l border-[var(--paper-20)] font-[family-name:var(--font-mono)] text-[11px] text-[var(--paper-60)] tracking-[0.06em]">
                   {featured.episodes.length}/{featured.totalEp} EP
                 </span>
               </div>
@@ -194,27 +70,12 @@ export default function List({ onOpenSeries }: Props) {
       </div>
 
       {/* ALL SERIES label */}
-      <div
-        style={{
-          padding: '0 20px 6px',
-          fontFamily: 'var(--font-mono)',
-          fontSize: 11,
-          letterSpacing: '0.18em',
-          color: 'var(--ink-60)',
-          textTransform: 'uppercase',
-        }}
-      >
+      <div className="px-5 pb-1.5 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.18em] text-[var(--ink-60)] uppercase">
         ALL SERIES · {SERIES.length}
       </div>
 
       {/* Series list rows */}
-      <div
-        style={{
-          padding: '6px 12px 32px',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+      <div className="px-3 pt-1.5 pb-8 flex flex-col">
         {rest.map((s, i) => {
           const isComingSoon = s.isComingSoon;
 
@@ -224,131 +85,40 @@ export default function List({ onOpenSeries }: Props) {
               onClick={() => {
                 if (!isComingSoon) onOpenSeries(s.id);
               }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 14,
-                padding: '14px 8px',
-                border: 'none',
-                background: 'transparent',
-                cursor: isComingSoon ? 'default' : 'pointer',
-                textAlign: 'left',
-                opacity: isComingSoon ? 0.4 : 1,
-                borderBottom:
-                  i < rest.length - 1 ? '1px solid var(--ink-10)' : 'none',
-              }}
+              className={`flex items-center gap-[14px] px-2 py-[14px] border-none bg-transparent ${isComingSoon ? 'cursor-default opacity-40' : 'cursor-pointer'} text-left ${i < rest.length - 1 ? 'border-b border-[var(--ink-10)]' : ''}`}
             >
               {/* Rank */}
-              <div
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: 13,
-                  fontWeight: 600,
-                  color: 'var(--ink-40)',
-                  width: 22,
-                  textAlign: 'center',
-                  flexShrink: 0,
-                  fontVariantNumeric: 'tabular-nums',
-                }}
-              >
+              <div className="font-[family-name:var(--font-mono)] text-[13px] font-semibold text-[var(--ink-40)] w-[22px] text-center shrink-0 tabular-nums">
                 {String(i + 2).padStart(2, '0')}
               </div>
               {/* Poster thumb */}
-              <div
-                style={{
-                  width: 64,
-                  height: 84,
-                  borderRadius: 10,
-                  overflow: 'hidden',
-                  flexShrink: 0,
-                  position: 'relative',
-                  boxShadow: '0 0 0 1px var(--ink-10)',
-                }}
-              >
+              <div className="w-16 h-[84px] rounded-[10px] overflow-hidden shrink-0 relative shadow-[0_0_0_1px_var(--ink-10)]">
                 <Image
                   src={s.poster}
                   alt=""
                   fill
-                  style={{ objectFit: 'cover' }}
+                  className="object-cover"
                   unoptimized
                 />
               </div>
               {/* Meta */}
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 6,
-                    marginBottom: 4,
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: 16,
-                      fontWeight: 600,
-                      color: 'var(--ink)',
-                      letterSpacing: '-0.01em',
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                    }}
-                  >
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div className="text-base font-semibold text-[var(--ink)] tracking-[-0.01em] whitespace-nowrap overflow-hidden text-ellipsis">
                     {s.title}
                   </div>
                   {isComingSoon && (
-                    <div
-                      style={{
-                        padding: '3px 6px',
-                        borderRadius: 4,
-                        background: 'rgba(230,57,70,0.08)',
-                        color: 'var(--plot-red)',
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 9.5,
-                        fontWeight: 600,
-                        letterSpacing: '0.08em',
-                        flexShrink: 0,
-                      }}
-                    >
+                    <div className="px-1.5 py-[3px] rounded bg-[rgba(230,57,70,0.08)] text-[var(--plot-red)] font-[family-name:var(--font-mono)] text-[9.5px] font-semibold tracking-[0.08em] shrink-0">
                       COMING SOON
                     </div>
                   )}
                 </div>
-                <div
-                  style={{
-                    fontSize: 12.5,
-                    color: 'var(--ink-60)',
-                    lineHeight: 1.4,
-                    marginBottom: 6,
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden',
-                    wordBreak: 'keep-all',
-                  } as React.CSSProperties}
-                >
+                <div className="text-[12.5px] text-[var(--ink-60)] leading-[1.4] mb-1.5 line-clamp-2 break-keep">
                   {s.tagline}
                 </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    gap: 8,
-                    alignItems: 'center',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 10,
-                    letterSpacing: '0.08em',
-                    color: 'var(--ink-40)',
-                  }}
-                >
+                <div className="flex gap-2 items-center font-[family-name:var(--font-mono)] text-[10px] tracking-[0.08em] text-[var(--ink-40)]">
                   <span>{s.genre}</span>
-                  <span
-                    style={{
-                      width: 2,
-                      height: 2,
-                      borderRadius: 9999,
-                      background: 'var(--ink-20)',
-                    }}
-                  />
+                  <span className="w-[2px] h-[2px] rounded-full bg-[var(--ink-20)]" />
                   <span>
                     S{s.season} · {isComingSoon ? '공개 예정' : `${s.episodes.length}/${s.totalEp} EP`}
                   </span>
@@ -356,21 +126,9 @@ export default function List({ onOpenSeries }: Props) {
               </div>
               {/* Play glyph */}
               {!isComingSoon && (
-                <div
-                  style={{
-                    width: 36,
-                    height: 36,
-                    borderRadius: 9999,
-                    flexShrink: 0,
-                    background: 'var(--plot-red)',
-                    display: 'flex',
-                    alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'var(--paper)',
-                }}
-              >
-                <Play size={14} strokeWidth={0} fill="var(--paper)" />
-              </div>
+                <div className="w-9 h-9 rounded-full shrink-0 bg-[var(--plot-red)] flex items-center justify-center text-[var(--paper)]">
+                  <Play size={14} strokeWidth={0} fill="var(--paper)" />
+                </div>
               )}
             </button>
           );
@@ -378,16 +136,7 @@ export default function List({ onOpenSeries }: Props) {
       </div>
 
       {/* Footer */}
-      <div
-        style={{
-          padding: '20px 20px 32px',
-          fontFamily: 'var(--font-mono)',
-          fontSize: 10,
-          letterSpacing: '0.2em',
-          color: 'var(--ink-40)',
-          textAlign: 'center',
-        }}
-      >
+      <div className="px-5 pt-5 pb-8 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.2em] text-[var(--ink-40)] text-center">
         한 입씩 먹는 드라마 · DRAMA PANN
       </div>
     </div>

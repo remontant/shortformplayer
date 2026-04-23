@@ -49,19 +49,12 @@ export default function LikeButton({ id, size = 48 }: Props) {
       style={{
         width: size,
         height: size,
-        borderRadius: 9999,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         background: liked ? 'rgba(230,57,70,0.14)' : 'var(--ink-10)',
         border: `1px solid ${liked ? 'rgba(230,57,70,0.35)' : 'var(--ink-20)'}`,
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
         color: liked ? '#E63946' : 'var(--ink)',
-        cursor: 'pointer',
         animation: liked ? 'plotLikePop 320ms cubic-bezier(0.22,1,0.36,1)' : 'none',
-        transition: 'background 150ms, border-color 150ms, color 150ms',
       }}
+      className="rounded-full flex items-center justify-center backdrop-blur-[12px] cursor-pointer transition-all duration-150 hover:opacity-80 active:scale-[0.92]"
     >
       <Heart
         size={iconSize}

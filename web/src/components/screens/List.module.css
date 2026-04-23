@@ -1,0 +1,100 @@
+.container {
+  background-color: var(--paper);
+  font-family: var(--font-sans);
+}
+
+.header {
+  background-color: var(--paper);
+  border-bottom: 1px solid var(--ink-10);
+}
+
+.headerTitle {
+  font-family: var(--font-sans);
+  color: var(--ink);
+}
+
+.highlightText {
+  color: var(--plot-red);
+}
+
+.sectionLabel {
+  font-family: var(--font-mono);
+  color: var(--ink-60);
+}
+
+.featuredCard {
+  box-shadow: 0 12px 32px rgba(15, 14, 13, 0.20), 0 0 0 1px var(--ink-10);
+}
+
+.gradientOverlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.25) 55%, transparent);
+}
+
+.genreChip {
+  background-color: var(--paper-10);
+  border: 1px solid var(--paper-20);
+  backdrop-filter: blur(10px);
+  font-family: var(--font-mono);
+  color: var(--paper-80);
+}
+
+.featuredTitle {
+  color: var(--ink);
+}
+
+.featuredTagline {
+  color: var(--ink-80);
+}
+
+.ctaButton {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+.ctaMeta {
+  border-left: 1px solid var(--paper-20);
+  font-family: var(--font-mono);
+  color: var(--paper-60);
+}
+
+.listItemRank {
+  font-family: var(--font-mono);
+  color: var(--ink-40);
+}
+
+.listItemThumb {
+  box-shadow: 0 0 0 1px var(--ink-10);
+}
+
+.listItemTitle {
+  color: var(--ink);
+}
+
+.comingSoonBadge {
+  background-color: rgba(230, 57, 70, 0.08);
+  color: var(--plot-red);
+  font-family: var(--font-mono);
+}
+
+.listItemTagline {
+  color: var(--ink-60);
+}
+
+.listItemMeta {
+  font-family: var(--font-mono);
+  color: var(--ink-40);
+}
+
+.listItemMetaDivider {
+  background-color: var(--ink-20);
+}
+
+.playGlyph {
+  background-color: var(--plot-red);
+  color: var(--paper);
+}
+
+.footer {
+  font-family: var(--font-mono);
+  color: var(--ink-40);
+}

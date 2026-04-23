@@ -25,6 +25,7 @@ function writeStorage(key: string, value: unknown) {
 export default function App() {
   const [route, setRoute] = useState<Route>('list');
   const [seriesId, setSeriesId] = useState<string | null>(null);
+  const [startEp, setStartEp] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -51,38 +52,29 @@ export default function App() {
     return () => window.removeEventListener('dp:back-to-list', handler);
   }, []);
 
-  const openSeries = (id: string) => { setSeriesId(id); setRoute('feed'); };
+  const openSeries = (id: string) => { setSeriesId(id); setRoute('feed'); setStartEp(null); };
   const openDetail = (id: string) => { setSeriesId(id); setRoute('series'); };
-  const backToList = () => setRoute('list');
-  const backToFeed = () => setRoute('feed');
+  const backToList = () => { setRoute('list'); setStartEp(null); };
+  const backToFeed = () => { setRoute('feed'); setStartEp(null); };
+  const watchEp = (epNum: number) => { setRoute('feed'); setStartEp(epNum); };
 
   if (!mounted) return null;
 
   return (
     <>
       <div className="side-text side-text-left">
-        DRAMA PANN <span style={{ opacity: 0.4 }}>·</span> 한 입씩 먹는 드라마
+        DRAMA PANN <span className="opacity-40">·</span> 한 입씩 먹는 드라마
       </div>
       <div className="side-text side-text-right">
-        2026 <span style={{ opacity: 0.4 }}>·</span> VERTICAL CINEMA
+        2026 <span className="opacity-40">·</span> VERTICAL CINEMA
       </div>
-      <div
-        style={{
-          width: '100%',
-          maxWidth: 690,
-          margin: '0 auto',
-          minHeight: '100dvh',
-          position: 'relative',
-          background: 'var(--paper)',
-          transition: 'background 200ms',
-        }}
-      >
+      <div className="w-full max-w-[690px] mx-auto min-h-[100dvh] relative bg-[var(--paper)] transition-colors duration-200">
         {route === 'list' && <List onOpenSeries={openSeries} />}
         {route === 'feed' && seriesId && (
-          <Feed seriesId={seriesId} onBack={backToList} onOpenSeries={openDetail} />
+          <Feed seriesId={seriesId} initialEp={startEp} onBack={backToList} onOpenSeries={openDetail} />
         )}
         {route === 'series' && seriesId && (
-          <SeriesDetail seriesId={seriesId} onBack={backToFeed} onWatch={backToFeed} />
+          <SeriesDetail seriesId={seriesId} onBack={backToFeed} onWatch={watchEp} />
         )}
       </div>
     </>

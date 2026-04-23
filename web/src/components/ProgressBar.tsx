@@ -9,22 +9,10 @@ interface Props {
 export default function ProgressBar({ value, total, thick = false }: Props) {
   const pct = Math.max(0, Math.min(100, (value / total) * 100));
   return (
-    <div
-      style={{
-        height: thick ? 6 : 3,
-        background: 'var(--ink-20)',
-        borderRadius: 9999,
-        overflow: 'hidden',
-      }}
-    >
+    <div className={`w-full bg-[var(--ink-20)] rounded-full overflow-hidden ${thick ? 'h-[6px]' : 'h-[3px]'}`}>
       <div
-        style={{
-          height: '100%',
-          width: `${pct}%`,
-          background: '#E63946',
-          borderRadius: 9999,
-          transition: 'width 200ms linear',
-        }}
+        className="h-full bg-[#E63946] rounded-full transition-[width] duration-200 ease-linear"
+        style={{ width: `${pct}%` }}
       />
     </div>
   );

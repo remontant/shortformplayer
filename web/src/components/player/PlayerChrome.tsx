@@ -27,42 +27,13 @@ export default function PlayerChrome({
   return (
     <>
       {/* Top protection gradient */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: '0 0 auto 0',
-          height: '28%',
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.75), transparent)',
-          pointerEvents: 'none',
-        }}
-      />
+      <div className="absolute inset-[0_0_auto_0] h-[28%] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.75),transparent)] pointer-events-none" />
       {/* Bottom protection gradient */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 'auto 0 0 0',
-          height: '38%',
-          background:
-            'linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2) 60%, transparent)',
-          pointerEvents: 'none',
-        }}
-      />
+      <div className="absolute inset-[auto_0_0_0] h-[38%] bg-[linear-gradient(to_top,rgba(0,0,0,0.85),rgba(0,0,0,0.2)_60%,transparent)] pointer-events-none" />
 
       {/* Top bar */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          padding: '22px 20px 20px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          zIndex: 2,
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+      <div className="absolute top-0 left-0 right-0 pt-[22px] px-5 pb-5 flex justify-between items-center z-[2]">
+        <div className="flex items-center gap-3">
           <button
             data-noprop="true"
             onClick={(e) => {
@@ -70,97 +41,34 @@ export default function PlayerChrome({
               onBack();
             }}
             aria-label="목록으로"
-            style={{
-              width: 38,
-              height: 38,
-              borderRadius: 9999,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'var(--paper-40)',
-              border: '1px solid var(--ink-10)',
-              backdropFilter: 'blur(10px)',
-              WebkitBackdropFilter: 'blur(10px)',
-              color: 'var(--ink)',
-              cursor: 'pointer',
-              padding: 0,
-            }}
+            className="w-[38px] h-[38px] rounded-full flex items-center justify-center bg-[var(--paper-40)] border border-[var(--ink-10)] backdrop-blur-[10px] text-[var(--ink)] cursor-pointer p-0 hover:bg-[var(--paper-60)] transition-colors"
           >
             <ChevronLeft size={20} strokeWidth={2} />
           </button>
-          <div
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: 18,
-              fontWeight: 700,
-              letterSpacing: '0.02em',
-              color: 'var(--ink)',
-              lineHeight: 1,
-            }}
-          >
-            Drama<span style={{ color: 'var(--plot-red)' }}>Pann</span>
+          <div className="font-[family-name:var(--font-sans)] text-[18px] font-bold tracking-[0.02em] text-[var(--ink)] leading-none">
+            Drama<span className="text-[var(--plot-red)]">Pann</span>
           </div>
         </div>
         <EpisodeBadge ep={ep} totalEp={series.totalEp} />
       </div>
 
       {/* Bottom meta */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          padding: '0 18px 20px',
-          zIndex: 2,
-          color: 'var(--ink)',
-        }}
-      >
+      <div className="absolute bottom-0 left-0 right-0 px-[18px] pb-5 z-[2] text-[var(--ink)]">
         <button
           data-noprop="true"
           onClick={(e) => {
             e.stopPropagation();
             onOpenSeries();
           }}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            padding: 0,
-            cursor: 'pointer',
-            textAlign: 'left',
-            color: 'var(--ink)',
-            fontFamily: 'var(--font-sans)',
-            fontSize: 22,
-            fontWeight: 600,
-            letterSpacing: '-0.015em',
-            marginBottom: 4,
-            display: 'block',
-          }}
+          className="bg-transparent border-none p-0 cursor-pointer text-left text-[var(--ink)] font-[family-name:var(--font-sans)] text-[22px] font-semibold tracking-[-0.015em] mb-1 block hover:opacity-80 transition-opacity"
         >
           {series.title}
         </button>
-        <div
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 11,
-            color: 'var(--ink-60)',
-            marginBottom: 12,
-          }}
-        >
+        <div className="font-[family-name:var(--font-mono)] text-[11px] text-[var(--ink-60)] mb-3">
           EP{String(ep).padStart(2, '0')} · {epTitle}
         </div>
         <ProgressBar value={progress} total={duration} />
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            fontFamily: 'var(--font-mono)',
-            fontSize: 10,
-            color: 'var(--ink-60)',
-            marginTop: 6,
-            fontVariantNumeric: 'tabular-nums',
-          }}
-        >
+        <div className="flex justify-between font-[family-name:var(--font-mono)] text-[10px] text-[var(--ink-60)] mt-1.5 tabular-nums">
           <span>{fmtTime(progress)}</span>
           <span>{fmtTime(duration)}</span>
         </div>

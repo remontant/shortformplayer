@@ -8,29 +8,13 @@ interface Props {
 
 export default function EpisodeBadge({ ep, totalEp, time }: Props) {
   return (
-    <div
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: 8,
-        padding: '6px 12px',
-        borderRadius: 9999,
-        background: 'var(--paper-40)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        color: 'var(--ink)',
-        fontFamily: 'var(--font-mono)',
-        fontSize: 12,
-        letterSpacing: '0.02em',
-        border: '1px solid var(--ink-10)',
-      }}
-    >
-      <span style={{ fontVariantNumeric: 'tabular-nums' }}>
-        {String(ep).padStart(2, '0')} <span style={{ opacity: 0.4, margin: '0 2px' }}>/</span> {String(totalEp).padStart(2, '0')}
+    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--paper-40)] backdrop-blur-[12px] text-[var(--ink)] font-[family-name:var(--font-mono)] text-[12px] tracking-[0.02em] border border-[var(--ink-10)]">
+      <span className="tabular-nums">
+        {String(ep).padStart(2, '0')} <span className="opacity-40 mx-[2px]">/</span> {String(totalEp).padStart(2, '0')}
       </span>
       {time && (
         <>
-          <span style={{ opacity: 0.4 }}>·</span>
+          <span className="opacity-40">·</span>
           <span>{time}</span>
         </>
       )}
